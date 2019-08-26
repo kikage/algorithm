@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+//　隣接リストの実装
+//!下から場合に応じて設定
+#define MAX_V 1000 // 頂点数の最大値
+typedef struct edge {
+  int to;	// 辺の終点
+  int cost;	// 辺の重み
+} edge;
+//!上まで場合に応じて設定
+vector<edge> G[MAX_V];
+
+int main(){
+  int V,E; // V　->　頂点数,E　->　辺数
+  cin >> V >> E;
+  for(int i=0;i<E;i++){
+    int s,t,c; // s -> 始点,t -> 終点, c-> 辺の重み
+    cin >> s >> t >> c;
+    G[s].push_back(edge{t,c});
+   // 無向線分グラフなら追加で G[t].push_back(edge{s,c});
+  }
+  
+  return 0;
+}
